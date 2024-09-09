@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Shopping Cart Smart</title>
+  <link rel="stylesheet" href="/style.css"> <!-- Kết nối với CSS trong thư mục public -->
+</head>
+<body>
+  <h1>Your Shopping List</h1>
+  <p1>Have a lucky day!</p1>
+
+  <div id="products">
+    <% products.forEach(product => { %>
+      <div class="item" onclick="addToCart('<%= product.name %>', <%= product.price %>)">
+        <img src="<%= product.picture %>" alt="<%= product.name %>" style="width:70px; height:50px;">
+        <u><%= product.name %> $<%= product.price %></u>
+      </div>
+    <% }) %>
+  </div>
+
+  <div id="cart">
+    <h2>Your Cart</h2>
+    <ul id="cart-items"></ul>
+    <p>Total: $<span id="total">0</span></p>
+    <button onclick="purchase()">Pay</button>
+  </div>
+
+  <script>
+    let cart = [];
+
+    function addToCart(item, price) {
+      cart.push({ item, price });
+      updateCart();
+    }
+
+    function updateCart() {
+      const cartItems = document.getElementById("cart-items");
+      const total = document.getElementById("total");
+      cartItems.innerHTML = "";
+      let totalPrice = 0;
+
+      cart.forEach((item, index) => {
+        const li = document.createElement("li");
+        li.textContent = `${item.item} - $${item.price}`;
+        const removeButton = document.createElement("button");
+        removeButton.textContent = "Remove";
+        removeButton.onclick = () => removeFromCart(index);
+        li.appendChild(removeButton);
+        cartItems.appendChild(li);
+        totalPrice += item.price;
+      });
+
+      total.textContent = totalPrice.toFixed(2);
+    }
+
+    function removeFromCart(index) {
+      cart.splice(index, 1);
+      updateCart();
+    }
+
+    function purchase() {
+      alert("Thank you! See you again!");
+      cart = [];
+      updateCart();
+    }
+
+
+  </script>
+</body>
+</html>

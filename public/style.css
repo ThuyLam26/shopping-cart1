@@ -1,0 +1,70 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #e0f7fa; 
+    text-align: center;
+    margin: 0;
+    padding: 0;
+}
+
+h1 {
+    background-color: #00bcd4;
+    color: white;
+    padding: 20px;
+    margin: 0;
+    font-size: 2.5em;
+}
+
+p1 {
+    
+    margin: 0;
+    font-size: 1.2em;
+}
+
+
+
+.item {
+    display: inline-block;
+    margin: 15px;
+    padding: 15px;
+    border: 1px solid #00acc1; 
+    border-radius: 10px;
+    background-color: #ffffff;
+    cursor: pointer;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Hiệu ứng bóng đổ nhẹ */
+    transition: all 0.3s ease;
+}
+
+.item:hover {
+    background-color: #b2ebf2; /* Màu nền sáng khi hover */
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+}
+
+#cart {
+    margin-top: 30px;
+    background-color: #ffffff;
+    padding: 20px;
+    border-radius: 10px;
+    display: inline-block;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
+}
+
+button {
+    background-color: #95bbf0; 
+    color: white;
+    padding: 12px 24px;
+    border: none;
+    cursor: pointer;
+    margin: 10px; /* Khoảng cách giữa các nút */
+    border-radius: 20px; /* Bo tròn nhiều hơn */
+    font-size: 1.1em;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+button:hover {
+    background-color: #e64a19; /* Màu cam đậm hơn khi hover */
+    transform: scale(1.05); /* Hiệu ứng phóng to nhẹ khi hover */
+}
+
+button:active {
+    transform: scale(1.1); /* Tăng kích thước khi nhấp */
+}
